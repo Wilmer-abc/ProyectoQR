@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador Avanzado de QR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-qrcode"></i> Generador Pro de QR</h1>
+            <p class="app-description">Transforma cualquier enlace en un código QR personalizable y guarda un historial de todos tus códigos generados.</p>
+        </header>
+
+        <main class="app-main">
+            <div class="qr-generator-section">
+                <div class="input-group">
+                    <input type="text" id="link" placeholder="https://ejemplo.com" class="url-input">
+                    <button onclick="generarQR()" class="generate-btn">
+                        <i class="fas fa-qrcode"></i> Generar QR
+                    </button>
+                </div>
+
+                <div class="qr-customization">
+                    <div class="color-picker">
+                        <label for="qr-color">Color:</label>
+                        <input type="color" id="qr-color" value="#000000">
+                    </div>
+                    <div class="bg-picker">
+                        <label for="qr-bg">Fondo:</label>
+                        <input type="color" id="qr-bg" value="#ffffff">
+                    </div>
+                </div>
+
+                <div id="qr-container" class="qr-result">
+                    <canvas id="qr-canvas"></canvas>
+                    <div class="qr-actions">
+                        <button id="descargar" onclick="descargarQR()" class="action-btn download-btn">
+                            <i class="fas fa-download"></i> Descargar
+                        </button>
+                        <button id="ver-historial" onclick="mostrarHistorial()" class="action-btn history-btn">
+                            <i class="fas fa-history"></i> Historial
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="historial-container" class="history-section">
+                <div class="history-header">
+                    <h2><i class="fas fa-clock-rotate-left"></i> Historial de QR</h2>
+                    <div class="history-actions">
+                        <button onclick="exportarHistorial()" class="export-btn">
+                            <i class="fas fa-file-export"></i> Exportar
+                        </button>
+                        <button onclick="borrarHistorial()" class="delete-btn">
+                            <i class="fas fa-trash"></i> Borrar Todo
+                        </button>
+                    </div>
+                </div>
+                <div id="historial-list" class="history-list"></div>
+            </div>
+        </main>
+
+        <div class="how-it-works">
+            <h2><i class="fas fa-info-circle"></i> ¿Cómo funciona?</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p>Ingresa cualquier URL en el campo de texto</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p>Personaliza los colores del QR si lo deseas</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p>Haz clic en "Generar QR" para crear tu código</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <p>Descarga el QR o consulta tu historial cuando lo necesites</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <p>&copy; 2025 Generador QR Pro  W.BATZ. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
